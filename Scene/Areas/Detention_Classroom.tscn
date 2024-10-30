@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://css5wg3cjj4r8"]
+
+[ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_6g1pl"]
+[ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_w45m2"]
+
+[node name="DetentionClassroom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6g1pl")
+centered = false
+
+[node name="Alex" parent="." instance=ExtResource("2_w45m2")]
+position = Vector2(580, 1417)
+
+[node name="Camera2D" type="Camera2D" parent="Alex"]
+zoom = Vector2(0.4, 0.4)
+limit_left = 0
+limit_top = 0
+limit_right = 3600
+limit_bottom = 1800
