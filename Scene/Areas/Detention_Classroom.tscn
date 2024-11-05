@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://css5wg3cjj4r8"]
+[gd_scene load_steps=7 format=3 uid="uid://css5wg3cjj4r8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_6g1pl"]
+[ext_resource type="Script" path="res://Scripts/fading_pines.gd" id="1_ho3t1"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_w45m2"]
-[ext_resource type="PackedScene" uid="uid://dckwmw00u4f31" path="res://Scene/alex's_desk.tscn" id="3_vkr4f"]
+[ext_resource type="PackedScene" uid="uid://dckwmw00u4f31" path="res://Scene/Objects/alex's_desk.tscn" id="3_vkr4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as6jw"]
 size = Vector2(3600, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px25e"]
+size = Vector2(244.5, 115.773)
+
 [node name="DetentionClassroom" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ho3t1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6g1pl")
@@ -27,7 +32,7 @@ shape = SubResource("RectangleShape2D_as6jw")
 position = Vector2(1896, 1650)
 
 [node name="Alex" parent="." instance=ExtResource("2_w45m2")]
-position = Vector2(1152, 1646)
+position = Vector2(2603, 1550)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
 position = Vector2(4, -189)
@@ -36,3 +41,15 @@ limit_left = 0
 limit_top = 0
 limit_right = 3600
 limit_bottom = 1800
+position_smoothing_enabled = true
+position_smoothing_speed = 30.0
+
+[node name="DoorToSchoolHallway" type="Area2D" parent="."]
+
+[node name="DoorToSchoolHallway" type="CollisionShape2D" parent="DoorToSchoolHallway"]
+position = Vector2(3535, 1598)
+shape = SubResource("RectangleShape2D_px25e")
+debug_color = Color(0.376608, 0.614087, 1.15514e-06, 0.42)
+
+[connection signal="body_entered" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_entered"]
+[connection signal="body_exited" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_exited"]
