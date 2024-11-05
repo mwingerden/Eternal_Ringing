@@ -1,18 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://css5wg3cjj4r8"]
+[gd_scene load_steps=5 format=3 uid="uid://css5wg3cjj4r8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_6g1pl"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_w45m2"]
+[ext_resource type="PackedScene" uid="uid://dckwmw00u4f31" path="res://Scene/alex's_desk.tscn" id="3_vkr4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as6jw"]
+size = Vector2(3600, 20)
 
 [node name="DetentionClassroom" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6g1pl")
 centered = false
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(3, 1800, 187, 1312, 3461, 1311, 3600, 1800, 3601, 6, -2, 5, 2.85028, 1745.31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1800, 1810)
+shape = SubResource("RectangleShape2D_as6jw")
+
+[node name="Alex Desk" parent="." instance=ExtResource("3_vkr4f")]
+position = Vector2(1896, 1650)
+
 [node name="Alex" parent="." instance=ExtResource("2_w45m2")]
-position = Vector2(580, 1417)
+position = Vector2(1152, 1646)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
+position = Vector2(4, -189)
 zoom = Vector2(0.4, 0.4)
 limit_left = 0
 limit_top = 0
