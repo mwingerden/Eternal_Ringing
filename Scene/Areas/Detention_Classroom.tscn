@@ -9,7 +9,7 @@
 size = Vector2(3600, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px25e"]
-size = Vector2(244.5, 115.773)
+size = Vector2(175.25, 115.773)
 
 [node name="DetentionClassroom" type="Node2D"]
 y_sort_enabled = true
@@ -32,7 +32,7 @@ shape = SubResource("RectangleShape2D_as6jw")
 position = Vector2(1896, 1650)
 
 [node name="Alex" parent="." instance=ExtResource("2_w45m2")]
-position = Vector2(2603, 1550)
+position = Vector2(2560, 1580)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
 position = Vector2(4, -189)
@@ -47,9 +47,15 @@ position_smoothing_speed = 30.0
 [node name="DoorToSchoolHallway" type="Area2D" parent="."]
 
 [node name="DoorToSchoolHallway" type="CollisionShape2D" parent="DoorToSchoolHallway"]
-position = Vector2(3535, 1598)
+position = Vector2(3569.63, 1598)
 shape = SubResource("RectangleShape2D_px25e")
 debug_color = Color(0.376608, 0.614087, 1.15514e-06, 0.42)
+
+[node name="ClassDoorSpawn" type="Node2D" parent="."]
+position = Vector2(3389, 1619)
+
+[node name="ClassStart" type="Node2D" parent="."]
+position = Vector2(814, 1591)
 
 [connection signal="body_entered" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_entered"]
 [connection signal="body_exited" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_exited"]

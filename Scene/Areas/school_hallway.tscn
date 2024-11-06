@@ -21,7 +21,7 @@ position = Vector2(1, -5)
 polygon = PackedVector2Array(-2, 1802, 1, 1841, 3602, 1835, 3600, 1804, 3, 1805, 180, 1323, 3466, 1325, 3599, 1803, 3601, 5, 0, 5)
 
 [node name="Alex" parent="." instance=ExtResource("2_500mo")]
-position = Vector2(3261, 1634)
+position = Vector2(1397, 1494)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
 position = Vector2(0, -247)
@@ -38,6 +38,9 @@ limit_smoothed = true
 position = Vector2(1771, 1270)
 shape = SubResource("RectangleShape2D_61i0p")
 debug_color = Color(0.376471, 0.615686, 0, 0.419608)
+
+[node name="ClassHallwaySpawn" type="Node2D" parent="."]
+position = Vector2(1767, 1399)
 
 [connection signal="body_entered" from="DoorToClass" to="." method="_on_door_to_class_body_entered"]
 [connection signal="body_exited" from="DoorToClass" to="." method="_on_door_to_class_body_exited"]
