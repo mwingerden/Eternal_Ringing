@@ -11,5 +11,12 @@ config_version=5
 [application]
 
 config/name="Eternal Ringing"
+run/main_scene="res://Scene/Areas/detention_classroom.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneTransition="*res://Scene/scene_transition.tscn"
+Utils="*res://Scripts/Utils.gd"
+SignalManager="*res://Scripts/SignalManager.gd"

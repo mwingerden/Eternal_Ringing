@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4b6gskhedc5v"]
+
+[ext_resource type="Script" path="res://Scripts/fading_pines.gd" id="1_dcmmw"]
+[ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_q2t6c"]
+[ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_500mo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61i0p"]
+size = Vector2(232.5, 185.5)
+
+[node name="SchoolHallway" type="Node2D"]
+script = ExtResource("1_dcmmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1800, 900)
+texture = ExtResource("1_q2t6c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1, -5)
+polygon = PackedVector2Array(-2, 1802, 1, 1841, 3602, 1835, 3600, 1804, 3, 1805, 180, 1323, 3466, 1325, 3599, 1803, 3601, 5, 0, 5)
+
+[node name="Alex" parent="." instance=ExtResource("2_500mo")]
+position = Vector2(944, 1615)
+
+[node name="Camera2D" type="Camera2D" parent="Alex"]
+position = Vector2(0, -247)
+zoom = Vector2(0.4, 0.4)
+limit_left = 0
+limit_top = 0
+limit_right = 3600
+limit_bottom = 1800
+limit_smoothed = true
+
+[node name="DoorToClass" type="Area2D" parent="."]
+
+[node name="DoorToClass" type="CollisionShape2D" parent="DoorToClass"]
+position = Vector2(1771, 1270)
+shape = SubResource("RectangleShape2D_61i0p")
+debug_color = Color(0.376471, 0.615686, 0, 0.419608)
+
+[node name="ClassHallwaySpawn" type="Node2D" parent="."]
+position = Vector2(1767, 1399)
+
+[connection signal="body_entered" from="DoorToClass" to="." method="_on_door_to_class_body_entered"]
+[connection signal="body_exited" from="DoorToClass" to="." method="_on_door_to_class_body_exited"]
