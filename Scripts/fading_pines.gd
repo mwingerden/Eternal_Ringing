@@ -6,19 +6,11 @@ var next_area = ""
 @onready var player = $Alex
 
 func _ready():
-	SignalManager.class_start.connect(class_start)
-	SignalManager.class_door.connect(class_door)
-	SignalManager.class_hallway_door.connect(class_hallway)
+	#SignalManager.class_start.connect(class_start)
+	player.position = Utils.set_player_pos()
 
-func class_start():
-	player.position = Utils.class_start_pos
-
-func class_door():
-	player.position = Utils.class_door_spawn
-
-func class_hallway():
-	print(Utils.class_hallway_spawn)
-	player.position = Utils.class_hallway_spawn
+#func class_start():
+	#Utils.new_spawn = Utils.SPAWN.CLASS_START
 
 @warning_ignore("unused_parameter")
 func _process(delta):

@@ -21,7 +21,7 @@ position = Vector2(1, -5)
 polygon = PackedVector2Array(-2, 1802, 1, 1841, 3602, 1835, 3600, 1804, 3, 1805, 180, 1323, 3466, 1325, 3599, 1803, 3601, 5, 0, 5)
 
 [node name="Alex" parent="." instance=ExtResource("2_500mo")]
-position = Vector2(1397, 1494)
+position = Vector2(944, 1615)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
 position = Vector2(0, -247)
