@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw5ybrduq12nr"]
+
+[ext_resource type="Script" path="res://Scripts/test_item_2.gd" id="1_qwd4i"]
+[ext_resource type="Texture2D" uid="uid://bsw27ntj288i5" path="res://Assets/Art/Items/test_item_2.png" id="1_vg81d"]
+[ext_resource type="Resource" uid="uid://25y6elbh8vdq" path="res://Inventory/items/test_item_2.tres" id="2_lx6va"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jqy7"]
+size = Vector2(181, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gftpr"]
+size = Vector2(144, 39)
+
+[node name="test_item_2" type="Node2D"]
+script = ExtResource("1_qwd4i")
+item = ExtResource("2_lx6va")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(2, 2)
+texture = ExtResource("1_vg81d")
+
+[node name="Interact" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_0jqy7")
+debug_color = Color(0.623529, 0.533333, 0, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_gftpr")
+
+[connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]

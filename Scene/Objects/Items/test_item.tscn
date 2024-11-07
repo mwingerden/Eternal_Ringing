@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp7xftrf57v7d"]
+
+[ext_resource type="Script" path="res://Scripts/test_item.gd" id="1_687tn"]
+[ext_resource type="Texture2D" uid="uid://blfhfq27xapkq" path="res://Assets/Art/Items/test_item_1.png" id="1_mwkrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlinb"]
+size = Vector2(311, 187.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huf5d"]
+size = Vector2(256, 76)
+
+[node name="TestItem" type="Node2D"]
+script = ExtResource("1_687tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+scale = Vector2(4, 4)
+texture = ExtResource("1_mwkrb")
+
+[node name="Interact" type="Area2D" parent="."]
+position = Vector2(0, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_wlinb")
+debug_color = Color(0.625396, 0.531955, 7.70092e-07, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -38)
+shape = SubResource("RectangleShape2D_huf5d")
+
+[connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]
