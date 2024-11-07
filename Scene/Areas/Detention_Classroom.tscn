@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://css5wg3cjj4r8"]
+[gd_scene load_steps=10 format=3 uid="uid://css5wg3cjj4r8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_6g1pl"]
-[ext_resource type="Script" path="res://Scripts/fading_pines.gd" id="1_ho3t1"]
+[ext_resource type="Script" path="res://Scripts/Areas/fading_pines.gd" id="1_ho3t1"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_w45m2"]
 [ext_resource type="PackedScene" uid="uid://dckwmw00u4f31" path="res://Scene/Objects/alex's_desk.tscn" id="3_vkr4f"]
+[ext_resource type="PackedScene" uid="uid://cp7xftrf57v7d" path="res://Scene/Objects/Items/test_item.tscn" id="4_3t18x"]
+[ext_resource type="Resource" uid="uid://tnjyovhul7o0" path="res://Inventory/items/test_item_1.tres" id="6_g8aua"]
+[ext_resource type="PackedScene" uid="uid://cw5ybrduq12nr" path="res://Scene/Objects/Items/test_item_2.tscn" id="7_5mbvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as6jw"]
 size = Vector2(3600, 20)
@@ -56,6 +59,13 @@ position = Vector2(3389, 1619)
 
 [node name="ClassStart" type="Node2D" parent="."]
 position = Vector2(814, 1591)
+
+[node name="TestItem" parent="." instance=ExtResource("4_3t18x")]
+position = Vector2(2871, 1431)
+item = ExtResource("6_g8aua")
+
+[node name="test_item_2" parent="." instance=ExtResource("7_5mbvy")]
+position = Vector2(1351, 1729)
 
 [connection signal="body_entered" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_entered"]
 [connection signal="body_exited" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_exited"]
