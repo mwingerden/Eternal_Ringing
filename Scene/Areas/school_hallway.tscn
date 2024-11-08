@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4b6gskhedc5v"]
 
-[ext_resource type="Script" path="res://Scripts/Areas/fading_pines.gd" id="1_dcmmw"]
+[ext_resource type="Script" path="res://Scripts/Areas/school_hallway.gd" id="1_8r3iy"]
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_q2t6c"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_500mo"]
 
@@ -8,7 +8,7 @@
 size = Vector2(232.5, 185.5)
 
 [node name="SchoolHallway" type="Node2D"]
-script = ExtResource("1_dcmmw")
+script = ExtResource("1_8r3iy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1800, 900)
@@ -40,7 +40,17 @@ shape = SubResource("RectangleShape2D_61i0p")
 debug_color = Color(0.376471, 0.615686, 0, 0.419608)
 
 [node name="ClassHallwaySpawn" type="Node2D" parent="."]
-position = Vector2(1767, 1399)
+position = Vector2(1769, 1467)
+
+[node name="EnterClass" type="Label" parent="."]
+offset_left = 1466.0
+offset_top = 820.0
+offset_right = 2066.0
+offset_bottom = 915.0
+theme_override_font_sizes/font_size = 50
+text = "Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="DoorToClass" to="." method="_on_door_to_class_body_entered"]
 [connection signal="body_exited" from="DoorToClass" to="." method="_on_door_to_class_body_exited"]

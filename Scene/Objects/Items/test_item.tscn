@@ -31,5 +31,16 @@ debug_color = Color(0.625396, 0.531955, 7.70092e-07, 0.42)
 position = Vector2(0, -38)
 shape = SubResource("RectangleShape2D_huf5d")
 
+[node name="PickUp" type="Label" parent="."]
+offset_left = -103.0
+offset_top = -325.0
+offset_right = 102.0
+offset_bottom = -266.0
+theme_override_font_sizes/font_size = 40
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]

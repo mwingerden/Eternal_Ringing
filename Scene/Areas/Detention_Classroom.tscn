@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://css5wg3cjj4r8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_6g1pl"]
-[ext_resource type="Script" path="res://Scripts/Areas/fading_pines.gd" id="1_ho3t1"]
+[ext_resource type="Script" path="res://Scripts/Areas/detention_classroom.gd" id="1_oe3a7"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_w45m2"]
 [ext_resource type="PackedScene" uid="uid://dckwmw00u4f31" path="res://Scene/Objects/alex's_desk.tscn" id="3_vkr4f"]
 [ext_resource type="PackedScene" uid="uid://cp7xftrf57v7d" path="res://Scene/Objects/Items/test_item.tscn" id="4_3t18x"]
@@ -16,7 +16,18 @@ size = Vector2(175.25, 115.773)
 
 [node name="DetentionClassroom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_ho3t1")
+script = ExtResource("1_oe3a7")
+
+[node name="EnterHallway" type="Label" parent="."]
+offset_left = 3304.0
+offset_top = 1184.0
+offset_right = 3818.0
+offset_bottom = 1299.0
+theme_override_font_sizes/font_size = 60
+text = "Enter
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6g1pl")
@@ -33,6 +44,13 @@ shape = SubResource("RectangleShape2D_as6jw")
 
 [node name="Alex Desk" parent="." instance=ExtResource("3_vkr4f")]
 position = Vector2(1896, 1650)
+
+[node name="TestItem" parent="." instance=ExtResource("4_3t18x")]
+position = Vector2(2871, 1431)
+item = ExtResource("6_g8aua")
+
+[node name="test_item_2" parent="." instance=ExtResource("7_5mbvy")]
+position = Vector2(1351, 1729)
 
 [node name="Alex" parent="." instance=ExtResource("2_w45m2")]
 position = Vector2(2560, 1580)
@@ -55,17 +73,10 @@ shape = SubResource("RectangleShape2D_px25e")
 debug_color = Color(0.376608, 0.614087, 1.15514e-06, 0.42)
 
 [node name="ClassDoorSpawn" type="Node2D" parent="."]
-position = Vector2(3389, 1619)
+position = Vector2(3257, 1619)
 
 [node name="ClassStart" type="Node2D" parent="."]
 position = Vector2(814, 1591)
-
-[node name="TestItem" parent="." instance=ExtResource("4_3t18x")]
-position = Vector2(2871, 1431)
-item = ExtResource("6_g8aua")
-
-[node name="test_item_2" parent="." instance=ExtResource("7_5mbvy")]
-position = Vector2(1351, 1729)
 
 [connection signal="body_entered" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_entered"]
 [connection signal="body_exited" from="DoorToSchoolHallway" to="." method="_on_door_to_school_hallway_body_exited"]

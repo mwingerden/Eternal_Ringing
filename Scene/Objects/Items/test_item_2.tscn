@@ -10,7 +10,7 @@ size = Vector2(181, 108)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gftpr"]
 size = Vector2(144, 39)
 
-[node name="test_item_2" type="Node2D"]
+[node name="TestItem2" type="Node2D"]
 script = ExtResource("1_qwd4i")
 item = ExtResource("2_lx6va")
 
@@ -33,6 +33,17 @@ position = Vector2(0, -32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_gftpr")
+
+[node name="PickUp" type="Label" parent="."]
+offset_left = -103.0
+offset_top = -194.0
+offset_right = 102.0
+offset_bottom = -135.0
+theme_override_font_sizes/font_size = 40
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
 
 [connection signal="body_entered" from="Interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="Interact" to="." method="_on_interact_body_exited"]
