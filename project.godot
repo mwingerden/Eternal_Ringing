@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneTransition="*res://Scene/Utility/scene_transition.tscn"
-Utils="*res://Scripts/Utility/Utils.gd"
+Utils="*res://Scripts/Utility/utils.gd"
 SignalManager="*res://Scripts/Utility/signal_manager.gd"
+ItemManagement="*res://Scripts/Items/item_management.gd"
 
 [input]
 

@@ -15,6 +15,7 @@ func _process(delta):
 	if interact:
 		if Input.is_action_just_pressed("pick_up"):
 			player.collect(item)
+			ItemManagement.test_item_1_picked_up = true
 			queue_free()
 
 func _on_interact_body_entered(body):

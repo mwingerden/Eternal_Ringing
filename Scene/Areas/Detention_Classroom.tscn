@@ -49,7 +49,7 @@ position = Vector2(1896, 1650)
 position = Vector2(2871, 1431)
 item = ExtResource("6_g8aua")
 
-[node name="test_item_2" parent="." instance=ExtResource("7_5mbvy")]
+[node name="TestItem2" parent="." instance=ExtResource("7_5mbvy")]
 position = Vector2(1351, 1729)
 
 [node name="Alex" parent="." instance=ExtResource("2_w45m2")]
