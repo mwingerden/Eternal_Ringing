@@ -16,14 +16,20 @@ func _ready():
 	#player.position = Utils.set_player_pos()
 	#entered = false
 	enter_hallway.visible = false
+	player_spawn()
+	item_spawn()
 	
+
+func player_spawn():
 	if Utils.new_spawn == Utils.SPAWN.CLASS_START:
 		player.position = class_start.position
 	elif Utils.new_spawn == Utils.SPAWN.CLASS_DOOR:
 		player.position = class_door_spawn.position
-	
+
+func item_spawn():
 	if ItemManagement.test_item_1_picked_up:
 		test_item_1.queue_free()
+	
 
 @warning_ignore("unused_parameter")
 func _process(delta):

@@ -19,8 +19,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("i"):
 		if is_open:
 			close()
+			SignalManager.player_can_move.emit()
 		else:
 			open()
+			SignalManager.player_can_move.emit()
 
 func open():
 	visible = true
