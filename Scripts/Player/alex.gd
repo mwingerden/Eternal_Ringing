@@ -6,7 +6,7 @@ extends CharacterBody2D
 var can_move = true
 
 func _ready():
-	SignalManager.player_can_move.connect(inventory_open)
+	SignalManager.player_can_move.connect(player_move)
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
@@ -23,5 +23,5 @@ func get_input():
 func collect(item):
 	inv.insert(item)
 
-func inventory_open():
+func player_move():
 	can_move = !can_move
