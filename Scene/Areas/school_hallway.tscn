@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4b6gskhedc5v"]
+[gd_scene load_steps=7 format=3 uid="uid://c4b6gskhedc5v"]
 
-[ext_resource type="Script" path="res://Scripts/fading_pines.gd" id="1_dcmmw"]
+[ext_resource type="Script" path="res://Scripts/Areas/school_hallway.gd" id="1_8r3iy"]
 [ext_resource type="Texture2D" uid="uid://dmgjp84g8tcev" path="res://Assets/Art/Background/room_test.png" id="1_q2t6c"]
 [ext_resource type="PackedScene" uid="uid://e6wgcgwumuyt" path="res://Scene/Player/alex.tscn" id="2_500mo"]
+[ext_resource type="PackedScene" uid="uid://cdi4rm5o4w7aw" path="res://Scene/Objects/locker_code_1.tscn" id="4_fa6hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61i0p"]
 size = Vector2(232.5, 185.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwvwj"]
+size = Vector2(185.75, 205.5)
+
 [node name="SchoolHallway" type="Node2D"]
-script = ExtResource("1_dcmmw")
+script = ExtResource("1_8r3iy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1800, 900)
@@ -21,7 +25,7 @@ position = Vector2(1, -5)
 polygon = PackedVector2Array(-2, 1802, 1, 1841, 3602, 1835, 3600, 1804, 3, 1805, 180, 1323, 3466, 1325, 3599, 1803, 3601, 5, 0, 5)
 
 [node name="Alex" parent="." instance=ExtResource("2_500mo")]
-position = Vector2(944, 1615)
+position = Vector2(1439, 1570)
 
 [node name="Camera2D" type="Camera2D" parent="Alex"]
 position = Vector2(0, -247)
@@ -40,7 +44,39 @@ shape = SubResource("RectangleShape2D_61i0p")
 debug_color = Color(0.376471, 0.615686, 0, 0.419608)
 
 [node name="ClassHallwaySpawn" type="Node2D" parent="."]
-position = Vector2(1767, 1399)
+position = Vector2(1769, 1467)
+
+[node name="EnterClass" type="Label" parent="."]
+offset_left = 1466.0
+offset_top = 820.0
+offset_right = 2066.0
+offset_bottom = 915.0
+theme_override_font_sizes/font_size = 50
+text = "Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AlexLocker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlexLocker"]
+position = Vector2(931, 1271)
+shape = SubResource("RectangleShape2D_cwvwj")
+debug_color = Color(0.583427, 0.550482, 0.0114936, 0.42)
+
+[node name="OpenLocker" type="Label" parent="."]
+offset_left = 645.0
+offset_top = 922.0
+offset_right = 1245.0
+offset_bottom = 1017.0
+theme_override_font_sizes/font_size = 50
+text = "Open Locker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Locker_Code_1" parent="." instance=ExtResource("4_fa6hr")]
+position = Vector2(512, 624)
 
 [connection signal="body_entered" from="DoorToClass" to="." method="_on_door_to_class_body_entered"]
 [connection signal="body_exited" from="DoorToClass" to="." method="_on_door_to_class_body_exited"]
+[connection signal="body_entered" from="AlexLocker" to="." method="_on_alex_locker_body_entered"]
+[connection signal="body_exited" from="AlexLocker" to="." method="_on_alex_locker_body_exited"]

@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://e6wgcgwumuyt"]
+[gd_scene load_steps=6 format=3 uid="uid://e6wgcgwumuyt"]
 
 [ext_resource type="Script" path="res://Scripts/Player/alex.gd" id="1_nwpyc"]
+[ext_resource type="Resource" uid="uid://bm4a4h7uhq3cc" path="res://Inventory/Scenes/playerinv.tres" id="2_alxu1"]
 [ext_resource type="Texture2D" uid="uid://33cljn6t2sib" path="res://icon.svg" id="2_xya5e"]
+[ext_resource type="PackedScene" uid="uid://c1k1ci8w3e562" path="res://Inventory/Scenes/inv_ui.tscn" id="4_ix463"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hckcl"]
 size = Vector2(239.875, 42)
 
 [node name="Alex" type="CharacterBody2D"]
 script = ExtResource("1_nwpyc")
+inv = ExtResource("2_alxu1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -247)
@@ -19,3 +22,9 @@ position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_hckcl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Inv UI" parent="." instance=ExtResource("4_ix463")]
+offset_left = -464.0
+offset_top = -943.0
+offset_right = 464.0
+offset_bottom = -526.0
